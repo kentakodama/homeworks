@@ -20,10 +20,3 @@ class Stack
       @stack
     end
 end
-
-
-if $0 == __FILE__
-
-  test = Stack.new
-
-end
