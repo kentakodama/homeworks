@@ -33,19 +33,20 @@ class Board
       skip = 6
     end
 
-    @in_hand = []
-    until @cups[start_pos].empty?
-      @in_hand << @cups[start_pos].shift
-    end
+    @in_hand = @cups[start_pos]
+    @cups[start_pos]
 
     current_pos = start_pos
     until @in_hand.empty?
       current_pos += 1
       current_pos = current_pos % 14
-      #unless current_pos == skip
-        #debugger
-      @cups[current_pos] << @in_hand.shift unless current_pos == skip
-
+      if current_player_name == @p1 && current_pos == 13
+        next
+      elsif current_player_name == @p2 && current_pos == 6
+        next
+      else
+        @cups[current_pos] << @in_hand.shift
+      end
     end
     render
 
@@ -79,7 +80,18 @@ class Board
   end
 
   def winner
-    return :draw if @cups[6].length == @cups[13].length
-    
+    #return :draw if @cups[6].length == @cups[13].length
+    player_one_count = @cups[6].count
+    player_two_count = @cups[13].count
+
+    case player_one_count <=> player_two_count
+    when 1
+      return @p1
+    when -1
+      return @p1
+    when 0
+      return :draw
+    end
   end
+
 end
