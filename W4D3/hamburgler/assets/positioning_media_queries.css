@@ -1,0 +1,21 @@
+@media (max-width: 900px) {
+  nav ul {
+    position: absolute;
+    display: none
+  }
+  .hamburger-dropdown {
+    display: block;
+  }
+
+
+  .hamburger-dropdown ul {
+    background: url(assets/hamburger_bar.png);
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+  }
+
+  .hamburger-dropdown:hover ul {
+      display: block;
+   }
+}
