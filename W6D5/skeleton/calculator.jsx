@@ -11,6 +11,9 @@ class Calculator extends React.Component {
   }
   setNum1(e) {
   // your code here
+    debugger
+
+
   }
   // your code here
   setNum2(e) {
@@ -22,7 +25,7 @@ class Calculator extends React.Component {
   render() {
    return (
      <div>
-       <input></input>
+       <input onChange={this.setNum1}></input>
        <h1>{this.state.result}</h1>
      </div>
    );
